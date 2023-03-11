@@ -31,6 +31,10 @@ class PostIt
     #[ORM\Column]
     private ?\DateTimeImmutable $lastModified = null;
 
+    #[ORM\ManyToOne(inversedBy: 'postIts')]
+    #[ORM\JoinColumn(nullable: false)]
+    private ?TodoList $todoList = null;
+
     public function getId(): ?int
     {
         return $this->id;
@@ -92,6 +96,18 @@ class PostIt
     public function setLastModified(\DateTimeImmutable $lastModified): self
     {
         $this->lastModified = $lastModified;
+
+        return $this;
+    }
+
+    public function getTodoList(): ?TodoList
+    {
+        return $this->todoList;
+    }
+
+    public function setTodoList(?TodoList $todoList): self
+    {
+        $this->todoList = $todoList;
 
         return $this;
     }
