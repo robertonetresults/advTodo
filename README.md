@@ -38,7 +38,7 @@ docker exec -it advtodo_php_1 bash
 
 Dall'interno del container **advtodo_php_1** eseguire i seguenti comandi
 ```shell
-/code/bin/check_migrations.sh
+/code/bin/complete_installation.sh
 exit
 ```
 

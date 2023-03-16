@@ -1,6 +1,7 @@
 FROM php:8.2.3-fpm
 
-RUN curl -1sLf 'https://dl.cloudsmith.io/public/symfony/stable/setup.deb.sh' | bash \
+RUN curl -1sLf https://getcomposer.org/download/latest-stable/composer.phar -o /usr/bin/composer && chmod +x /usr/bin/composer \
+    && curl -1sLf 'https://dl.cloudsmith.io/public/symfony/stable/setup.deb.sh' | bash \
     && apt-get update\
     && apt-get install -y \
         libpq-dev \
